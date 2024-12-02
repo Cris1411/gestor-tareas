@@ -1,8 +1,8 @@
 import React from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useSelector, useDispatch } from 'react-redux';
-import { reorderTasks } from '../store/slices/tasksSlice';
-import { selectFilteredTasks } from '../store/slices/tasksSlice';
+import { reorderTasks } from '../../store/slices/tasksSlice';
+import { selectFilteredTasks } from '../../store/slices/tasksSlice';
 import TaskCard from './TaskCard';
 
 const Board = () => {

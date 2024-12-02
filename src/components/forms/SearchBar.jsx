@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilter } from '../store/slices/tasksSlice';
+import { setFilter } from '../../store/slices/tasksSlice';
 
 const SearchBar = ({ darkMode }) => {
   const dispatch = useDispatch();

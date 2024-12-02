@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateTask } from '../store/slices/tasksSlice';
+import { updateTask } from '../../store/slices/tasksSlice';
 
 const SubTaskList = ({ task, darkMode }) => {
   const dispatch = useDispatch();

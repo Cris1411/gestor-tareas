@@ -8,13 +8,13 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 // Componentes
-import Board from './components/Board';
-import TaskForm from './components/TaskForm';
-import SearchBar from './components/SearchBar';
-import Statistics from './components/Statistics';
-import DataManager from './components/DataManager';
-import Footer from './components/Footer';
-import FilterBar from './components/FilterBar';
+import Board from './components/tasks/Board';
+import TaskForm from './components/forms/TaskForm';
+import SearchBar from './components/forms/SearchBar';
+import Statistics from './components/ui/Statistics';
+import DataManager from './components/ui/DataManager';
+import Footer from './components/layout/Footer';
+import FilterBar from './components/forms/FilterBar';
 
 // Actions de Redux
 import { setFilter } from './store/slices/tasksSlice';

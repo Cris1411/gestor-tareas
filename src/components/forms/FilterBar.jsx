@@ -6,7 +6,7 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../store/slices/tasksSlice';
+import { setFilter } from '../../store/slices/tasksSlice';
 
 /**
  * @param {Object} props - Propiedades del componente

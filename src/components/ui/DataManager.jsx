@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask } from '../store/slices/tasksSlice';
+import { addTask } from '../../store/slices/tasksSlice';
 
 const DataManager = ({ darkMode }) => {
   const dispatch = useDispatch();
