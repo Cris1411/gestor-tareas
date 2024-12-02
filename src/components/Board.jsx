@@ -2,11 +2,12 @@ import React from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useSelector, useDispatch } from 'react-redux';
 import { reorderTasks } from '../store/slices/tasksSlice';
+import { selectFilteredTasks } from '../store/slices/tasksSlice';
 import TaskCard from './TaskCard';
 
 const Board = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector(state => state.tasks.tasks);
+  const tasks = useSelector(selectFilteredTasks);
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
@@ -18,16 +19,20 @@ const Board = () => {
     dispatch(reorderTasks(items));
   };
 
+  const todoTasks = tasks.filter(task => task.status === 'todo');
+  const inProgressTasks = tasks.filter(task => task.status === 'in-progress');
+  const completedTasks = tasks.filter(task => task.status === 'completed');
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <DragDropContext onDragEnd={onDragEnd}>
         {/* Por hacer */}
-        <div className={`rounded-lg p-4 bg-white shadow-sm`}>
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+        <div className="rounded-lg p-4 bg-white dark:bg-gray-800 shadow-sm">
+          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 dark:text-white">
             <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
             Por hacer
-            <span className="ml-auto text-sm text-gray-500">
-              {tasks.filter(task => task.status === 'todo').length}
+            <span className="ml-auto text-sm text-gray-500 dark:text-gray-400">
+              {todoTasks.length}
             </span>
           </h2>
           <Droppable droppableId="todo">
@@ -37,15 +42,13 @@ const Board = () => {
                 {...provided.droppableProps}
                 className="space-y-3 min-h-[50px]"
               >
-                {tasks
-                  .filter(task => task.status === 'todo')
-                  .map((task, index) => (
-                    <TaskCard
-                      key={task.id}
-                      task={task}
-                      index={index}
-                    />
-                  ))}
+                {todoTasks.map((task, index) => (
+                  <TaskCard
+                    key={task.id}
+                    task={task}
+                    index={index}
+                  />
+                ))}
                 {provided.placeholder}
               </div>
             )}
@@ -53,30 +56,28 @@ const Board = () => {
         </div>
 
         {/* En progreso */}
-        <div className={`rounded-lg p-4 bg-white shadow-sm`}>
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+        <div className="rounded-lg p-4 bg-white dark:bg-gray-800 shadow-sm">
+          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 dark:text-white">
             <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
             En progreso
-            <span className="ml-auto text-sm text-gray-500">
-              {tasks.filter(task => task.status === 'inProgress').length}
+            <span className="ml-auto text-sm text-gray-500 dark:text-gray-400">
+              {inProgressTasks.length}
             </span>
           </h2>
-          <Droppable droppableId="inProgress">
+          <Droppable droppableId="in-progress">
             {(provided) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
                 className="space-y-3 min-h-[50px]"
               >
-                {tasks
-                  .filter(task => task.status === 'inProgress')
-                  .map((task, index) => (
-                    <TaskCard
-                      key={task.id}
-                      task={task}
-                      index={index}
-                    />
-                  ))}
+                {inProgressTasks.map((task, index) => (
+                  <TaskCard
+                    key={task.id}
+                    task={task}
+                    index={index}
+                  />
+                ))}
                 {provided.placeholder}
               </div>
             )}
@@ -84,30 +85,28 @@ const Board = () => {
         </div>
 
         {/* Completado */}
-        <div className={`rounded-lg p-4 bg-white shadow-sm`}>
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+        <div className="rounded-lg p-4 bg-white dark:bg-gray-800 shadow-sm">
+          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 dark:text-white">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
             Completado
-            <span className="ml-auto text-sm text-gray-500">
-              {tasks.filter(task => task.status === 'done').length}
+            <span className="ml-auto text-sm text-gray-500 dark:text-gray-400">
+              {completedTasks.length}
             </span>
           </h2>
-          <Droppable droppableId="done">
+          <Droppable droppableId="completed">
             {(provided) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
                 className="space-y-3 min-h-[50px]"
               >
-                {tasks
-                  .filter(task => task.status === 'done')
-                  .map((task, index) => (
-                    <TaskCard
-                      key={task.id}
-                      task={task}
-                      index={index}
-                    />
-                  ))}
+                {completedTasks.map((task, index) => (
+                  <TaskCard
+                    key={task.id}
+                    task={task}
+                    index={index}
+                  />
+                ))}
                 {provided.placeholder}
               </div>
             )}

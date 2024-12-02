@@ -1,19 +1,35 @@
+/**
+ * App.jsx
+ * Componente principal de la aplicación Gestor de Tareas.
+ * Maneja el estado global, el modo oscuro y la disposición general de la interfaz.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+
+// Componentes
 import Board from './components/Board';
 import TaskForm from './components/TaskForm';
 import SearchBar from './components/SearchBar';
 import Statistics from './components/Statistics';
 import DataManager from './components/DataManager';
 import Footer from './components/Footer';
+import FilterBar from './components/FilterBar';
+
+// Actions de Redux
 import { setFilter } from './store/slices/tasksSlice';
 
 function App() {
+  // Redux dispatch
   const dispatch = useDispatch();
+
+  // Estados locales
   const [darkMode, setDarkMode] = useState(false);
   const [showStats, setShowStats] = useState(false);
   const [showTaskForm, setShowTaskForm] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
+  // Efecto para cargar la preferencia de modo oscuro al iniciar
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(savedDarkMode);
@@ -22,21 +38,38 @@ function App() {
     }
   }, []);
 
+  /**
+   * Alterna entre modo claro y oscuro
+   * Guarda la preferencia en localStorage
+   */
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     localStorage.setItem('darkMode', !darkMode);
     document.documentElement.classList.toggle('dark');
   };
 
+  /**
+   * Maneja la búsqueda de tareas
+   * @param {string} searchTerm - Término de búsqueda
+   */
   const handleSearch = (searchTerm) => {
     dispatch(setFilter({ search: searchTerm }));
   };
 
+  /**
+   * Alterna la visibilidad del panel de filtros
+   */
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
+  };
+
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      {/* Header con logo y controles principales */}
       <header className="sticky top-0 z-50 bg-blue-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            {/* Logo y título */}
             <div className="flex items-center gap-3">
               <img src="/tareas.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10" />
               <div>
@@ -46,48 +79,43 @@ function App() {
                 </p>
               </div>
             </div>
+
+            {/* Controles de modo oscuro */}
             <div className="flex items-center gap-3">
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full hover:bg-blue-700/50 transition-colors"
-                title={darkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+                className="p-2 rounded-lg hover:bg-blue-700 transition-colors"
+                title={darkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
               >
-                {darkMode ? (
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
-                )}
-              </button>
-              <button
-                onClick={() => setShowTaskForm(!showTaskForm)}
-                className="flex items-center gap-2 px-4 py-2 bg-white text-blue-600 rounded-full hover:bg-blue-50 transition-colors text-sm sm:text-base font-medium shadow-sm"
-              >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                Nueva Tarea
+                {darkMode ? '🌞' : '🌙'}
               </button>
             </div>
           </div>
         </div>
       </header>
 
+      {/* Contenido principal */}
       <main className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 gap-6">
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between items-start sm:items-center">
-            {showTaskForm && <TaskForm darkMode={darkMode} />}
-            <SearchBar onSearch={handleSearch} darkMode={darkMode} />
+        <div className="flex flex-col gap-6">
+          {/* Barra de búsqueda */}
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <div className="flex-1">
+              <SearchBar onSearch={handleSearch} darkMode={darkMode} />
+            </div>
           </div>
+
+          {/* Componentes principales */}
+          {showTaskForm && <TaskForm darkMode={darkMode} />}
           <Board darkMode={darkMode} />
           {showStats && <Statistics darkMode={darkMode} />}
           <DataManager darkMode={darkMode} />
+          
+          {/* Modal de filtros */}
+          {showFilters && <FilterBar onClose={toggleFilters} darkMode={darkMode} />}
         </div>
       </main>
 
+      {/* Footer */}
       <Footer darkMode={darkMode} />
     </div>
   );
