@@ -1,63 +1,84 @@
-## React + Vite
+# Gestor de Tareas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para gestionar tareas, con soporte para prioridades, etiquetas, subtareas y estadísticas. Permite organizar tu flujo de trabajo de manera visual y eficiente.
 
-Currently, two official plugins are available:
+## Captura de pantalla
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A continuación puedes ver una vista de la interfaz principal de la aplicación:
 
+![Captura de pantalla de la app](./assets/capturaGestorTareas.png)
 
-# Proyecto Gestor de Tareas
-
-src/
-├── assets/
-├── components/
-│   ├── forms/
-│   │   ├── TaskForm.jsx
-│   │   ├── FilterBar.jsx
-│   │   └── SearchBar.jsx
-│   ├── tasks/
-│   │   ├── Board.jsx
-│   │   ├── TaskCard.jsx
-│   │   ├── TaskColumn.jsx
-│   │   └── SubTaskList.jsx
-│   ├── ui/
-│   │   ├── Statistics.jsx
-│   │   ├── TagManager.jsx
-│   │   └── DataManager.jsx
-│   └── layout/
-│       └── Footer.jsx
-├── constants/
-│   └── taskConstants.js
-├── hooks/
-│   └── useLocalStorage.js
-├── utils/
-│   └── dateUtils.js
-├── services/
-├── layouts/
-├── pages/
-├── types/
-├── store/
-├── App.jsx
-├── index.css
-└── main.jsx
+*La imagen muestra la vista principal del gestor de tareas, donde puedes crear, organizar y gestionar tus tareas de manera visual, incluyendo prioridades, etiquetas y subtareas.*
 
 ---
 
-## Recomendaciones para una mejor organización:
+## Tecnologías usadas
 
-1- Estructura de carpetas actual (bien organizada):
-- /src: Código fuente principal
-- /src/components: Componentes de React
-- /src/assets: Recursos estáticos
-- /src/store: Estado global de la aplicación
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [date-fns](https://date-fns.org/)
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
 
-2- Sugerencias de mejora:
-- Crear una carpeta /src/hooks para hooks personalizados
-- Crear una carpeta /src/utils o /src/helpers para funciones utilitarias
-- Crear una carpeta /src/services para lógica de servicios/API
-- Crear una carpeta /src/layouts para componentes de diseño reutilizables
+---
+
+## Instalación
+
+1. Clona el repositorio:
+   ```sh
+   git clone https://github.com/tuusuario/gestor-tareas.git
+   cd gestor-tareas
+   ```
+2. Instala las dependencias:
+   ```sh
+   npm install
+   ```
+
+---
+
+## Uso
+
+- Para iniciar el servidor de desarrollo:
+  ```sh
+  npm run dev
+  ```
+- Para construir el proyecto para producción:
+  ```sh
+  npm run build
+  ```
+- Para previsualizar la build:
+  ```sh
+  npm run preview
+  ```
+
+---
+
+## Contribución
+
+¡Las contribuciones son bienvenidas!
+Puedes abrir un issue para reportar bugs o sugerir mejoras.
+Para contribuir con código:
+
+1. Haz un fork del repositorio.
+2. Crea una rama para tu feature/fix: `git checkout -b mi-feature`
+3. Haz tus cambios y commitea: `git commit -am 'Añade nueva feature'`
+4. Haz push a tu rama: `git push origin mi-feature`
+5. Abre un Pull Request.
+
+---
+
+## Tests
+
+Actualmente no hay tests automatizados.
+(Si los agregas, describe aquí cómo correrlos).
+
+---
+
+## Licencia
+
+MIT
+
 - Crear una carpeta /src/pages para componentes de página completa
 - Crear una carpeta /src/constants para valores constantes
 
