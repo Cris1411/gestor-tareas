@@ -31,7 +31,7 @@ Aplicación web para gestionar tareas, con soporte para prioridades, etiquetas, 
 
 - **Última Actualización:** Mayo 2025
 
-- **Versión:** 1.0.0
+- **Versión:** 0.3.0
 
 - **Estado:** ✅ Completado
 
@@ -43,7 +43,9 @@ Aplicación web para gestionar tareas, con soporte para prioridades, etiquetas, 
 
 A continuación puedes ver una vista de la interfaz principal de la aplicación:
 
-![Captura de pantalla de la app](./assets/capturaGestorTareas.png)
+![Captura de pantalla de la app](./assets/capturaGestorTareas.png)  
+
+![Captura de pantalla de la app](./assets/captura-web.png)  
 
 *La imagen muestra la vista principal del gestor de tareas, donde puedes crear, organizar y gestionar tus tareas de manera visual, incluyendo prioridades, etiquetas y subtareas.*
 
