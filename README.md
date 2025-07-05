@@ -2,6 +2,43 @@
 
 Aplicación web para gestionar tareas, con soporte para prioridades, etiquetas, subtareas y estadísticas. Permite organizar tu flujo de trabajo de manera visual y eficiente.
 
+## 👨‍💻 Autor
+
+
+**Cristian R. Sanchez**  
+
+*Desarrollador Web Full Stack*
+
+
+
+📍 **Ubicación:** Buenos Aires, Argentina  
+
+📧 **Email:** cris1411@gmail.com  
+
+🔗 **LinkedIn:** [Cristian R. Sanchez](https://www.linkedin.com/in/cristian-roberto-sanchez-canesin-044283b7/)  
+
+🐙 **GitHub:** [Cris1411](https://github.com/Cris1411)  
+
+🌐 **Portfolio:** [mi Portfolio](https://cristian-mi-portfolio.netlify.app/)  
+
+
+---
+
+## 📅 Información del Proyecto
+
+
+- **Fecha de Creación:** Marzo 2025
+
+- **Última Actualización:** Mayo 2025
+
+- **Versión:** 1.0.0
+
+- **Estado:** ✅ Completado
+
+
+---
+
+
 ## Captura de pantalla
 
 A continuación puedes ver una vista de la interfaz principal de la aplicación:
@@ -105,3 +142,50 @@ Esta estructura te ayudará a:
 - Facilitar el mantenimiento y escalabilidad
 - Mejorar la colaboración en el proyecto
 - Aumentar la legibilidad y claridad del código
+
+---
+
+
+## 👨‍💻 Acerca del Autor
+
+
+**Cristian R. Sanchez** es un desarrollador web apasionado por crear aplicaciones útiles y bien diseñadas. Este proyecto de lista de tareas fue desarrollado como parte de su portafolio personal, demostrando habilidades en:
+
+
+- **Frontend:** HTML5, CSS3, JavaScript
+
+- **Diseño:** Interfaces responsivas y accesibles
+
+- **UX/UI:** Experiencias de usuario intuitivas
+
+- **Almacenamiento:** Gestión de datos locales
+
+
+### 🎯 Motivación del Proyecto
+
+Esta aplicación nació de la necesidad de tener una herramienta simple pero efectiva para gestionar tareas diarias. El objetivo era crear una solución que fuera:
+
+- Fácil de usar
+
+- Visualmente atractiva
+
+- Funcional sin dependencias externas
+
+- Responsiva en todos los dispositivos
+
+
+### 📞 Contacto
+
+¿Tienes alguna pregunta o sugerencia sobre este proyecto? ¡No dudes en contactarme!
+
+
+- **Email:** cris1411@gmail.com
+
+- **LinkedIn:** [Cristian R. Sanchez](https://www.linkedin.com/in/cristian-roberto-sanchez-canesin-044283b7/)
+
+- **GitHub:** [Cris1411](https://github.com/Cris1411)
+
+
+---
+
+*¡Gracias por revisar mi proyecto!* 🚀
